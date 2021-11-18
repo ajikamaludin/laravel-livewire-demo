@@ -6,7 +6,7 @@
         </div>
         <input type="text" class="input input-bordered" placeholder="search" wire:model.debounce.500ms="search">
     </div>
-    <table class="table w-full" wire:loading.class.delay="opacity-75">
+    <table class="table w-full" wire:loading.class.delay="opacity-25">
         <thead>
             <tr>
                 <th wire:click="orderBy('name')" >
@@ -36,7 +36,7 @@
             @foreach($shortlinks as $shortlink)
             <tr>
                 <td>{{ $shortlink->name }}</td> 
-                <td>{{ $shortlink->code }}</td> 
+                <td>{{ url($shortlink->code) }}</td> 
                 <td>{{ $shortlink->real_link }}</td> 
                 <td>{{ $shortlink->visit_count }}</td> 
                 <td>{{ $shortlink->last_visited_at }}</td> 
@@ -55,6 +55,11 @@
                 </td>
             </tr>
             @endforeach
+            @if($shortlinks->count() <= 0)
+            <tr>
+                <td>No Data</td>
+            </tr>
+            @endif
         </tbody>
     </table>
     {{ $shortlinks->links('components.pagination') }}

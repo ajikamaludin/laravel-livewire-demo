@@ -20,5 +20,4 @@
 </div>
 @livewire('link-form')
 @livewire('link-delete')
-@livewire('toast-notification')
 </x-app-layout>

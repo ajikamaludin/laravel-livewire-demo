@@ -2146,6 +2146,9 @@ html {
 .flex-col {
 	flex-direction: column;
 }
+.content-center {
+	align-content: center;
+}
 .items-center {
 	align-items: center;
 }
@@ -2501,6 +2504,9 @@ html {
 }
 .opacity-75 {
 	opacity: 0.75;
+}
+.opacity-25 {
+	opacity: 0.25;
 }
 .shadow-sm {
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);

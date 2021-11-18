@@ -41,7 +41,7 @@ class LinkForm extends Component
     {
         $data = $this->validate();
 
-        if ($this->id == null) {
+        if ($this->link == null) {
             $link = Auth::user()->links()->create([
                 'id' => Str::uuid(),
                 'name' => $this->data['name'],
@@ -51,7 +51,6 @@ class LinkForm extends Component
         } else {
             $this->link->update([
                 'name' => $this->data['name'],
-                'code' => Str::random(6),
                 'real_link' => $this->data['link'],
             ]);
         }
