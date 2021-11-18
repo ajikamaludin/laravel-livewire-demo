@@ -15,8 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Shortlink') }}
+                    <x-nav-link :href="route('shortlinks.index')" :active="request()->routeIs('shortlinks.*')">
+                        {{ __('Shortlink - Livewire') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('shortlinks.index')" :active="request()->routeIs('shortlinks.*')">
+                        {{ __('Shortlink - Powergrid') }}
                     </x-nav-link>
                     <x-dropdown-menu :align="'right'" width="48">
                         <x-slot name="trigger">
