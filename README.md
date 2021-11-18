@@ -1,6 +1,6 @@
-# Laravel InertiaJs - React Demo
+# Laravel Livewire - Powergrid Demo
 
-laravel CRUD with inertiajs - react with ui kit [daisyui](https://daisyui.com/components/form/input)
+laravel CRUD with livewire - dashboard with laravel tailwind default & ui kit [daisyui](https://daisyui.com/components/form/input)
 
 ## Requirements
 
