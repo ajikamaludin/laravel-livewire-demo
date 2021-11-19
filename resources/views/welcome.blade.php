@@ -27,7 +27,7 @@
                 </div>
             @endif
 
-            <div class="w-1/2 mx-auto sm:px-6 lg:px-8 space-y-4">
+            <div class="w-full md:w-1/2 mx-auto sm:px-6 lg:px-8 space-y-4">
                 <div class="mx-auto text-6xl font-bold text-primary">{{ env('APP_NAME', 'Shortlinks.') }}</div>
                 <form action="{{ route('links.store') }}" method="post" class="mb-6">
                     @csrf
