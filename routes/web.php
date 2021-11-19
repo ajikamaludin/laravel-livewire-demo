@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\PowerLinkController;
 
@@ -15,9 +16,8 @@ use App\Http\Controllers\PowerLinkController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [FrontController::class, 'index'])->name('welcome');
+Route::post('/', [FrontController::class, 'store'])->name('links.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,3 +27,5 @@ Route::get('shortlinks', LinkController::class)->middleware(['auth'])->name('sho
 Route::get('powerlinks', PowerLinkController::class)->middleware(['auth'])->name('powerlinks.index');
 
 require __DIR__.'/auth.php';
+
+Route::get('/{link:code}', [FrontController::class, 'redirect']);

@@ -46,9 +46,8 @@ class LinkForm extends Component
 
         if ($this->link == null) {
             $link = Auth::user()->links()->create([
-                'id' => Str::uuid(),
                 'name' => $this->data['name'],
-                'code' => $this->generateCode(),
+                'code' => Link::generateCode(),
                 'real_link' => $this->data['link'],
             ]);
         } else {
@@ -78,14 +77,5 @@ class LinkForm extends Component
     public function render()
     {
         return view('livewire.link-form', ['data' => $this->data]);
-    }
-
-    private function generateCode()
-    {
-        $code = Str::random(6);
-        if (Link::where('code', $code)->count() != 0) {
-            $code = $this->generateCode();
-        }
-        return $code;
     }
 }

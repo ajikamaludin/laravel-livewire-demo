@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('welcome') }}">
-                        <p class="font-bold text-3xl">App</p>
+                        <p class="font-bold text-3xl">{{ env('APP_NAME', 'Shortlinks.')}}</p>
                     </a>
                 </div>
 
