@@ -16,6 +16,7 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         @livewireStyles
+        @powerGridStyles
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -34,5 +35,6 @@
             </main>
         </div>
         @livewireScripts
+        @powerGridScripts
     </body>
 </html>

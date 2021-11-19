@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LinkController;
+use App\Http\Controllers\PowerLinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('shortlinks', LinkController::class)->middleware(['auth'])->name('shortlinks.index');
-Route::get('powerlinks', LinkController::class)->middleware(['auth'])->name('powerlinks.index');
+Route::get('powerlinks', PowerLinkController::class)->middleware(['auth'])->name('powerlinks.index');
 
 require __DIR__.'/auth.php';
