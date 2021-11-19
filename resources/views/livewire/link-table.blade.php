@@ -7,7 +7,7 @@
         <input type="text" class="input input-bordered" placeholder="search" wire:model.debounce.500ms="search">
     </div>
     <div class="">
-        <table class="table w-full" wire:loading.class.delay="opacity-25">
+        <table class="table w-full">
             <thead>
                 <tr>
                     <th wire:click="orderBy('name')" >
@@ -33,7 +33,7 @@
                     <th></th>
                 </tr>
             </thead> 
-            <tbody>
+            <tbody wire:loading.class.delay="opacity-25">
                 @foreach($shortlinks as $shortlink)
                 <tr>
                     <td>{{ $shortlink->name }}</td> 

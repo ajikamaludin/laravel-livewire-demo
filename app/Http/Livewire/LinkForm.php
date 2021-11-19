@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Auth;
+use App\Models\Link;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -17,7 +18,8 @@ class LinkForm extends Component
     public $data = [
         'id' => null,
         'name' => '',
-        'link' => ''
+        'link' => '',
+        'code' => '',
     ];
 
     protected $rules = [
@@ -34,6 +36,7 @@ class LinkForm extends Component
             $this->data['id'] = $this->link->id;
             $this->data['name'] = $this->link->name;
             $this->data['link'] = $this->link->real_link;
+            $this->data['code'] = $this->link->code;
         }
     }
 
@@ -45,12 +48,14 @@ class LinkForm extends Component
             $link = Auth::user()->links()->create([
                 'id' => Str::uuid(),
                 'name' => $this->data['name'],
-                'code' => Str::random(6),
+                'code' => $this->generateCode(),
                 'real_link' => $this->data['link'],
             ]);
         } else {
+            $this->validate(['data.code' => 'unique:links,code,'.$this->link->id]);
             $this->link->update([
                 'name' => $this->data['name'],
+                'code' => $this->data['code'],
                 'real_link' => $this->data['link'],
             ]);
         }
@@ -61,15 +66,26 @@ class LinkForm extends Component
 
     public function resetForm()
     {
+        $this->link = null;
         $this->data = [
             'id' => null,
             'name' => '',
-            'link' => ''
+            'link' => '',
+            'code' => '',
         ];
     }
 
     public function render()
     {
         return view('livewire.link-form', ['data' => $this->data]);
+    }
+
+    private function generateCode()
+    {
+        $code = Str::random(6);
+        if (Link::where('code', $code)->count() != 0) {
+            $code = $this->generateCode();
+        }
+        return $code;
     }
 }

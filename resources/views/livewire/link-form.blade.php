@@ -24,6 +24,20 @@
                 </label>
                 @enderror
             </div>
+            @if($data['id'] != '')
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Code</span>
+                </label>
+                <input name="code"  wire:model.defer="data.code" type="url" placeholder="CUSTOM" 
+                    class="input input-bordered @error('data.code') input-error @enderror" required>
+                @error('data.code') 
+                <label class="label">
+                    <span class="label-text-alt">{{ $message }}</span>
+                </label>
+                @enderror
+            </div>
+            @endif
             <div class="flex flex-row justify-around space-x-4">
                 <div class="form-control w-full">
                     <label class="label">
