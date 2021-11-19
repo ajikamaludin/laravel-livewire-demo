@@ -2049,8 +2049,14 @@ html {
 .h-8 {
 	height: 2rem;
 }
+.h-screen {
+	height: 100vh;
+}
 .min-h-screen {
 	min-height: 100vh;
+}
+.min-h-full {
+	min-height: 100%;
 }
 .w-5 {
 	width: 1.25rem;
@@ -2191,6 +2197,25 @@ html {
 }
 .overflow-hidden {
 	overflow: hidden;
+}
+.overflow-x-auto {
+	overflow-x: auto;
+}
+.overflow-x-hidden {
+	overflow-x: hidden;
+}
+.overflow-x-visible {
+	overflow-x: visible;
+}
+.overflow-x-scroll {
+	overflow-x: scroll;
+}
+.overscroll-none {
+	-ms-scroll-chaining: none;
+	    overscroll-behavior: none;
+}
+.overscroll-x-none {
+	overscroll-behavior-x: none;
 }
 .rounded-md {
 	border-radius: 0.375rem;
@@ -2761,6 +2786,19 @@ html {
 		justify-content: space-between;
 	}
 
+	.sm\:overflow-x-auto {
+		overflow-x: auto;
+	}
+
+	.sm\:overscroll-none {
+		-ms-scroll-chaining: none;
+		    overscroll-behavior: none;
+	}
+
+	.sm\:overscroll-x-none {
+		overscroll-behavior-x: none;
+	}
+
 	.sm\:rounded-lg {
 		border-radius: 0.5rem;
 	}
@@ -2778,6 +2816,23 @@ html {
 
 	.md\:w-1\/2 {
 		width: 50%;
+	}
+
+	.md\:overflow-x-auto {
+		overflow-x: auto;
+	}
+
+	.md\:overscroll-none {
+		-ms-scroll-chaining: none;
+		    overscroll-behavior: none;
+	}
+
+	.md\:overscroll-x-contain {
+		overscroll-behavior-x: contain;
+	}
+
+	.md\:overscroll-x-none {
+		overscroll-behavior-x: none;
 	}
 }
 @media (min-width: 1024px) {
